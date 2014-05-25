@@ -1,0 +1,29 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "BlocksKit/BlocksKit.h"
+    #import <BlocksKit/BlocksKit+UIKit.h>
+    #import "SVProgressHUD.h"
+#endif
+
+#ifdef DEBUG
+    #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #define LOG_RECT(p) NSLog(@"%f, %f - %f, %f", p.origin.x, p.origin.y, p.size.width, p.size.height)
+    #define LOG_POINT(p) NSLog(@"%f, %f", p.x, p.y)
+#else
+    #define DLog(...)
+    #define LOG_RECT(...)
+    #define LOG_POINT(...)
+#endif
